@@ -4,10 +4,19 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/tusky-backend-e2e"
+      "path": "./apps/api"
     },
     {
-      "path": "./apps/tusky-backend"
+      "path": "./packages/service-products"
+    },
+    {
+      "path": "./packages/data-products"
+    },
+    {
+      "path": "./packages/api-products"
+    },
+    {
+      "path": "./packages/api-types"
     }
   ]
 }
