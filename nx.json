@@ -12,13 +12,15 @@
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
-    "sharedGlobals": []
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
   "plugins": [
     {
       "plugin": "@nx/js/typescript",
       "options": {
-        "typecheck": { "targetName": "typecheck" },
+        "typecheck": {
+          "targetName": "typecheck"
+        },
         "build": {
           "targetName": "build",
           "configName": "tsconfig.lib.json",
@@ -27,17 +29,28 @@
         }
       }
     },
-    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
     {
       "plugin": "@nx/jest/plugin",
-      "options": { "targetName": "test" },
+      "options": {
+        "targetName": "test"
+      },
       "exclude": ["apps/tusky-backend-e2e/**/*"]
     },
     {
       "plugin": "@nx/docker",
       "options": {
-        "buildTarget": { "name": "docker:build" },
-        "runTarget": { "name": "docker:run" }
+        "buildTarget": {
+          "name": "docker:build"
+        },
+        "runTarget": {
+          "name": "docker:run"
+        }
       }
     }
   ],
@@ -47,7 +60,9 @@
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     },
-    "test": { "dependsOn": ["^build"] }
+    "test": {
+      "dependsOn": ["^build"]
+    }
   },
   "nxCloudId": "692f012cbfd65f7e686ac1f6",
   "nxCloudUrl": "https://staging.nx.app"
