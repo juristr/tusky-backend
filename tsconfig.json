@@ -17,6 +17,15 @@
     },
     {
       "path": "./packages/api-types"
+    },
+    {
+      "path": "./packages/service-ratings"
+    },
+    {
+      "path": "./packages/data-ratings"
+    },
+    {
+      "path": "./packages/api-ratings"
     }
   ]
 }

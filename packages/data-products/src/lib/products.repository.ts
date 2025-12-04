@@ -6,7 +6,7 @@ const products: Product[] = [
     name: 'Wireless Noise-Cancelling Headphones',
     price: 249.99,
     originalPrice: 299.99,
-    rating: 5,
+    rating: 4.8,
     image:
       'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     category: 'Electronics',
@@ -15,7 +15,7 @@ const products: Product[] = [
     id: 2,
     name: 'Ultra HD Smart TV 55"',
     price: 699.99,
-    rating: 4,
+    rating: 2,
     image:
       'https://images.pexels.com/photos/1201996/pexels-photo-1201996.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     category: 'Electronics',
@@ -25,7 +25,7 @@ const products: Product[] = [
     name: 'Leather Crossbody Bag',
     price: 79.99,
     originalPrice: 99.99,
-    rating: 4,
+    rating: 4.3,
     image:
       'https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     category: 'Fashion',
@@ -34,7 +34,7 @@ const products: Product[] = [
     id: 4,
     name: "Men's Running Shoes",
     price: 129.99,
-    rating: 5,
+    rating: 4.8,
     image:
       'https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     category: 'Footwear',
@@ -44,7 +44,7 @@ const products: Product[] = [
     name: 'Stainless Steel Water Bottle',
     price: 24.99,
     originalPrice: 29.99,
-    rating: 4,
+    rating: 4.3,
     image:
       'https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     category: 'Lifestyle',
@@ -53,7 +53,7 @@ const products: Product[] = [
     id: 6,
     name: 'Scented Soy Candle Set',
     price: 34.99,
-    rating: 4,
+    rating: 4.3,
     image:
       'https://images.pexels.com/photos/3066868/pexels-photo-3066868.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     category: 'Home',
@@ -63,7 +63,7 @@ const products: Product[] = [
     name: 'Fitness Smartwatch',
     price: 199.99,
     originalPrice: 249.99,
-    rating: 5,
+    rating: 4.8,
     image:
       'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     category: 'Electronics',
@@ -72,7 +72,7 @@ const products: Product[] = [
     id: 8,
     name: 'Organic Face Moisturizer',
     price: 29.99,
-    rating: 4,
+    rating: 4.3,
     image:
       'https://images.pexels.com/photos/725998/pexels-photo-725998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     category: 'Beauty',
@@ -86,6 +86,13 @@ export class ProductsRepository {
 
   findById(id: number): Product | undefined {
     return products.find((p) => p.id === id);
+  }
+
+  updateRating(productId: number, rating: number): void {
+    const product = this.findById(productId);
+    if (product) {
+      product.rating = rating;
+    }
   }
 }
 
