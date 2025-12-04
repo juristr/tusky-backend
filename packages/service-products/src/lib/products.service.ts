@@ -11,6 +11,10 @@ export class ProductsService {
   getById(id: number): Product | undefined {
     return this.repo.findById(id);
   }
+
+  updateRating(productId: number, rating: number): void {
+    this.repo.updateRating(productId, rating);
+  }
 }
 
 export const productsService = new ProductsService();
