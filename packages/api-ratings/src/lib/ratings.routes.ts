@@ -47,6 +47,55 @@ export async function ratingsRoutes(fastify: FastifyInstance) {
     }
   );
 
+  const getAllRatingsOpts: RouteShorthandOptions = {
+    schema: {
+      tags: ['ratings'],
+      summary: 'Get all ratings for a product',
+      params: {
+        type: 'object',
+        properties: {
+          productId: { type: 'string' },
+        },
+        required: ['productId'],
+      },
+      response: {
+        200: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              id: { type: 'number' },
+              productId: { type: 'number' },
+              stars: { type: 'number' },
+              comment: { type: 'string' },
+              createdAt: { type: 'string', format: 'date-time' },
+            },
+          },
+        },
+        404: {
+          type: 'object',
+          properties: {
+            message: { type: 'string' },
+          },
+        },
+      },
+    },
+  };
+
+  fastify.get<{ Params: { productId: string } }>(
+    '/api/ratings/:productId/all',
+    getAllRatingsOpts,
+    async (request, reply) => {
+      const productId = parseInt(request.params.productId, 10);
+      const product = productsService.getById(productId);
+      if (!product) {
+        reply.code(404);
+        return { message: 'Product not found' };
+      }
+      return ratingsService.getRatingsByProductId(productId);
+    }
+  );
+
   const createRatingOpts: RouteShorthandOptions = {
     schema: {
       tags: ['ratings'],

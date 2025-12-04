@@ -15,7 +15,7 @@ const products: Product[] = [
     id: 2,
     name: 'Ultra HD Smart TV 55"',
     price: 699.99,
-    rating: 4,
+    rating: 2,
     image:
       'https://images.pexels.com/photos/1201996/pexels-photo-1201996.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     category: 'Electronics',

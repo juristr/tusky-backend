@@ -35,14 +35,14 @@ const ratings: Rating[] = [
   {
     id: 5,
     productId: 2,
-    stars: 4,
+    stars: 1,
     comment: 'Great picture quality',
     createdAt: new Date('2024-01-20'),
   },
   {
     id: 6,
     productId: 2,
-    stars: 5,
+    stars: 1,
     comment: 'Perfect for movies',
     createdAt: new Date('2024-02-15'),
   },
@@ -52,13 +52,6 @@ const ratings: Rating[] = [
     stars: 4,
     comment: 'Smart features work well',
     createdAt: new Date('2024-03-25'),
-  },
-  {
-    id: 8,
-    productId: 2,
-    stars: 3,
-    comment: 'Sound could be better',
-    createdAt: new Date('2024-04-12'),
   },
 
   // Product 3: Leather Crossbody Bag (avg ~4)

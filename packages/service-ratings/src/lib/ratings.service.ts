@@ -12,6 +12,10 @@ export class RatingsService {
     return this.repo.getSummary(productId);
   }
 
+  getRatingsByProductId(productId: number): Rating[] {
+    return this.repo.findByProductId(productId);
+  }
+
   addRating(productId: number, input: CreateRatingInput): Rating {
     const rating = this.repo.create(productId, input.stars, input.comment);
     const summary = this.repo.getSummary(productId);
